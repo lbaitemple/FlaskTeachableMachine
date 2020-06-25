@@ -8,8 +8,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 
 ###
-##  curl -u lbai:test -F "picture=@pic2.jpg" -F "model=@keras_model.h5" -F "class=@labels.txt" -F "format=json" http://127.0.0.1:8000/upload
-##  curl -u lbai:test -F "picture=@pic2.jpg" -F "model=@keras_model.h5" -F "class=@labels.txt" -F "format=text" http://127.0.0.1:8000/upload
+##  curl -u lbai:test -F "picture=@pic2.jpg" -F "model=@keras_model.h5" -F "class=@labels.txt" -F "format=json" http://127.0.0.1:5000/upload
+##  curl -u lbai:test -F "picture=@pic2.jpg" -F "model=@keras_model.h5" -F "class=@labels.txt" -F "format=text" http://127.0.0.1:5000/upload
 ###
 
 app = Flask(__name__)
@@ -32,13 +32,12 @@ def verify_password(username, password):
         return username
 
 
-@app.route("/upload", methods=["POST"])
+@app.route("/classfy", methods=["POST"])
 @auth.login_required
-def upload():
+def classfy():
     # data format
     data = request.form.to_dict(flat=True)
-    print(data)
-    print(data['format'])
+
     # check autheneication
     folder=auth.current_user()
     # check is the current_user has a folder, if the server does not
@@ -96,4 +95,4 @@ if __name__ == '__main__':
         logging.basicConfig(filename='tmp.log',
                             format='%(levelname)s %(asctime)s :: %(message)s',
                             level=logging.DEBUG)
-        app.run(host='0.0.0.0', port=8000)
+        app.run(host='0.0.0.0', port=5000)
