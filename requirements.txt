@@ -1,0 +1,4 @@
+Flask==1.1.2
+Flask-HTTPAuth==4.1.0
+paho-mqtt==1.5.0
+tensorflow
