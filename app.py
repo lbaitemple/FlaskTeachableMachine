@@ -8,8 +8,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 
 ###
-##  curl -u lbai:test -F "picture=@pic2.jpg" -F "model=@keras_model.h5" -F "class=@labels.txt" -F "format=json" http://127.0.0.1:5000/upload
-##  curl -u lbai:test -F "picture=@pic2.jpg" -F "model=@keras_model.h5" -F "class=@labels.txt" -F "format=text" http://127.0.0.1:5000/upload
+##  curl -u lbai:test -F "picture=@pic2.jpg" -F "model=@keras_model.h5" -F "class=@labels.txt" -F "format=json" http://127.0.0.1:8080/upload
+##  curl -u lbai:test -F "picture=@pic2.jpg" -F "model=@keras_model.h5" -F "class=@labels.txt" -F "format=text" http://127.0.0.1:8080/upload
 ###
 
 app = Flask(__name__)
